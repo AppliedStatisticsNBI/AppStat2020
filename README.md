@@ -11,8 +11,8 @@ You have two options for installing and running the applied statistics notebooks
 We recommend that you try __BOTH__ methods for the course. Having a local copy of the exercices can become very handy when the ERDA servers are down (for maintenance or other reasons), and when you finish your studies and start one something new. But ERDA gives you a feel for how remote computing works, and allows you to suddenly go from 1 CPU to 100s. Trying both is simply our attempt at boosting your knowledge of computing.
 
 
-### Option A. Running things on your laptop
 ---
+### Option A. Running things on your laptop
 
 To run things on your local computer, you will have to install additional software to be able to properly run the notebooks.
 
@@ -25,26 +25,25 @@ Given the wide range of operating systems available out there, we cannot guarant
 * [__Instructions for MacOs Mojave__](./docs/install_instruction_macos_mojave.md)
 
 
-### Option B. Running things on ERDA
 ---
+### Option B. Running things on ERDA
 
 * [__The instructions for using ERDA are available here__](./docs/install_instruction_erda.md)
 
 
-### Option C. Manually downloading the course content
 ---
+### Option C. Manually downloading the course content
 
 If you do not want to subscribe to github, you can still download manually the content of the repository using the __donwload zip__ option on the main page of this git. [More details are available here]('./docs/manual_copy_of_code.md')
 
 
-## Running things after installation
 ---
+## Running things after installation
 
 Once you have installed the required software and cloned the repository, you can run your notebooks, and update the content of the repository by following [__these instructions__](./docs/running_after_install.md)
 
 
 ---
-
 ## Link to Course Information
 
 *	[Course Main page](https://www.nbi.dk/~petersen/Teaching/AppliedStatistics2020.html)
