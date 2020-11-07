@@ -68,7 +68,7 @@ Type in `y` and wait for the installation to complete. You should now be able to
 * If you don't have git installed on your laptop, install it by following [these instructions](https://gist.github.com/derhuerst/1b15ff4652a867391f03#file-linux-md)
 
 * Clone the Applied statistics repository using the command 
-`git clone https://github.com/AppliedStatisticsNBI/AppStat2019.git ./AppStat2019_local/`. 
+`git clone https://github.com/AppliedStatisticsNBI/AppStat2020.git ./AppStat2020_local/`. 
  Feel free to choose another name for your folder
 
 * You now have a local copy of the repository
