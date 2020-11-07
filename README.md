@@ -34,7 +34,7 @@ Given the wide range of operating systems available out there, we cannot guarant
 ---
 ### Option C. Manually downloading the course content
 
-If you do not want to subscribe to github, you can still download manually the content of the repository using the __donwload zip__ option on the main page of this git. [More details are available here]('./docs/manual_copy_of_code.md')
+If you do not want to subscribe to github, you can still download manually the content of the repository using the __donwload zip__ option on the main page of this git. [More details are available here](./docs/manual_copy_of_code.md)
 
 
 ---
