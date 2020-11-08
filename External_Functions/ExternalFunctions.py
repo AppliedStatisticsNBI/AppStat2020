@@ -92,9 +92,18 @@ def compute_f(f, x, *par):
 
 
 class Chi2Regression:  # override the class with a better one
-    
-    def __init__(self, f, x, y, sy=None, weights=None):
         
+    def __init__(self, f, x, y, sy=None, weights=None, bound=None):
+        
+        if bound is not None:
+            x = np.array(x)
+            y = np.array(y)
+            sy = np.array(sy)
+            mask = (x >= bound[0]) & (x <= bound[1])
+            x  = x[mask]
+            y  = y[mask]
+            sy = sy[mask]
+
         self.f = f  # model predicts y for given x
         self.x = np.array(x)
         self.y = np.array(y)
@@ -140,8 +149,15 @@ def integrate1d(f, bound, nint, *arg):
 
 class UnbinnedLH:  # override the class with a better one
     
-    def __init__(self, f, data, weights=None, badvalue=-100000, extended=False, extended_bound=None, extended_nint=100):
+    def __init__(self, f, data, weights=None, bound=None, badvalue=-100000, extended=False, extended_bound=None, extended_nint=100):
         
+        if bound is not None:
+            data = np.array(data)
+            mask = (data >= bound[0]) & (data <= bound[1])
+            data = data[mask]
+            if (weights is not None) :
+                weights = weights[mask]
+
         self.f = f  # model predicts PDF for given x
         self.data = np.array(data)
         self.weights = set_var_if_None(weights, self.data)
@@ -192,8 +208,16 @@ class BinnedLH:  # override the class with a better one
     
     def __init__(self, f, data, bins=40, weights=None, weighterrors=None, bound=None, badvalue=1000000, extended=False, use_w2=False, nint_subdiv=1):
         
-        self.weights = set_var_if_None(weights, data)
+        if bound is not None:
+            data = np.array(data)
+            mask = (data >= bound[0]) & (data <= bound[1])
+            data = data[mask]
+            if (weights is not None) :
+                weights = weights[mask]
+            if (weightserrors is not None) :
+                weightserrors = weightserrors[mask]
 
+        self.weights = set_var_if_None(weights, data)
 
         self.f = f
         self.use_w2 = use_w2
