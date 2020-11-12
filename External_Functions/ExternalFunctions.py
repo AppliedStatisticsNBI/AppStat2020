@@ -214,8 +214,8 @@ class BinnedLH:  # override the class with a better one
             data = data[mask]
             if (weights is not None) :
                 weights = weights[mask]
-            if (weightserrors is not None) :
-                weightserrors = weightserrors[mask]
+            if (weighterrors is not None) :
+                weighterrors = weighterrors[mask]
 
         self.weights = set_var_if_None(weights, data)
 
