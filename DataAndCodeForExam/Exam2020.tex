@@ -1,0 +1,245 @@
+\documentclass[11pt]{article}
+
+\usepackage[latin1]{inputenc}
+\usepackage[danish]{babel}        % Use English headings, date format.
+\usepackage{a4wide}               % A4 (DIN format).
+\usepackage[hidelinks]{hyperref}  % Enable direct links in PDF (e.g. for data sets)
+
+\textheight=1.10\textheight
+\textwidth=1.10\textwidth
+\hoffset=-0.05\textwidth
+\leftmargin=-0.18\textwidth
+\headsep=0.0pt
+\headheight=0.0pt
+
+\vfuzz2pt   % Don't report over-full v-boxes if over-edge is small
+\hfuzz10pt  % Don't report over-full h-boxes if over-edge is smallish
+
+\newcommand{\half}{\mbox{$\frac{1}{2}$}}
+
+\begin{document}
+%\pagestyle{empty}
+
+%----------------------------------------------------------------------------
+\noindent
+University of Copenhagen \hfill
+Niels Bohr Institute, \today \par
+\vspace{-2ex}
+\noindent
+\hrulefill
+
+\vspace{1ex}
+\begin{center}
+{\bf {\Huge Applied Statistics}}\\
+\vspace{1ex}
+{\large Exam in applied statistics 2020/21}
+\end{center}
+
+%----------------------------------------------------------------------------
+\vspace{0ex}
+\noindent
+This take-home exam was distributed Thursday the 21st of January 2021 08:00, and a solution in PDF format must be submitted at \texttt{www.eksamen.ku.dk} by 20:00 sharp Friday the 22nd of January 2021, along with all code used to work out your solutions (as appendix). Links to data files can be found on the course webpage. Working in groups or discussing the problems with others is {\bf NOT} allowed.
+
+\vspace{1ex}
+\begin{center}
+  Good luck and thanks for all your hard work, Troels, John, Nikki, Giulia, Zuzanna \& Anna.
+\end{center}
+
+%----------------------------------------------------------------------------
+
+\noindent
+\hrulefill\\
+\emph{Science is not truth. It is the current summary of our experiences.} \hfill [Jens Martin Knudsen, 1930-2005]\\[-2ex]
+
+%----------------------------------------------------------------------------
+\vspace{-2ex}
+\noindent
+\hrulefill
+
+
+\vspace{3ex}
+\noindent
+{\bf I -- Distributions and probabilities:}
+\begin{description}
+  \item[1.1] (5 points)
+  You roll 20 normal dice, count the number of 3s, $N_3$, and repeat this 1000 times.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item What distribution will $N_3$ follow? Why?
+    \item What is the probability of getting 7 or more 3s in a roll with 20 normal dice?
+  \end{itemize}
+%
+\item[1.2] (7 points)
+  On the 4th of January 2021, the number of Danish Covid-19 tests and positives in 24 hours were: PCR: 103261, with 2464 positives and
+  AntiGen: 26162 with 491 positives.
+  \vspace*{-1ex}
+  \begin{itemize}
+  \item Assuming both tests are accurate (i.e.\ have no errors), what is the fraction of positives in each test? And what is the probability
+      that these fractions are statistically the same?
+    \item Assuming that the two tests are sampling the same population and no other errors, what is the false negative rate (i.e.\ rate of
+      positive testing negative) of the AntiGen test?
+    \item 
+      A test has a 0.02\% false positive rate and 20\% false negative rate. You test 50000 persons, finding 47 positives.
+      What fraction of the Danish population would you estimate are infected?
+  \end{itemize}
+%
+\item[1.3] (7 points) 
+  The file \href{http://www.nbi.dk/~petersen/data\_VoltagePeaks.txt}{\bf www.nbi.dk/$\sim$petersen/data\_VoltagePeaks.txt} contains
+  measurements of voltages, which corresponds to masses from a spectrometer, where peaks are of interest.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Plot all the data in as illustrative, informative, and illuminating a manner as you can.
+    \item Fit the peaks that you can find in the spectrum, and comment on their characteristics.
+  \end{itemize}
+\end{description}
+
+
+
+%----------------------------------------------------------------------------
+
+\vspace{2ex}
+\noindent
+{\bf II -- Error propagation:}
+\begin{description}
+\item[2.1] (6 points)
+  You measure $x = 1.96 \pm 0.03$ to be used in a further calculation of $y$ and $z$.
+  \vspace*{-1ex}
+  \begin{itemize} 
+    \item Given $x$, what are the values of and uncertainties on $y = (1 + x^2)^{-1}$ and $z = (1 - x)^{-2}$?
+    \item What are the values of and uncertainties on $y$ and $z$, if $x = 0.96 \pm 0.03$ instead?
+  \end{itemize}
+%
+\item[2.2] (7 points) 
+  Students in a statistics class have measured the gravitational acceleration $g$ as follows:
+  \vspace*{-1ex}
+  \begin{center}
+  \begin{tabular}{l|cccccccccc}
+    \hline
+    \hline
+    Result ($m/s^2$)       &9.54   &9.36   &10.02   &9.87   &9.98   &9.86   &9.86   &9.81   &9.79\\
+    Uncertainty ($m/s^2$)  &0.15   &0.10   & 0.11   &0.08   &0.14   &0.06   &0.03   &0.13   &0.04\\
+    \hline
+    \hline
+  \end{tabular}
+  \end{center}
+  %
+  \begin{itemize}
+    \item Assuming independent measurements, what is the best estimate of $g$ and its uncertainty?
+    \item What is the $\chi^2$ and its p-value? Do you find any measurements to be unlikely?
+    \item Does your best estimate of $g$ agree with the precision measurement $9.8158 \pm 0.0001$ $m/s^2$?
+  \end{itemize}
+\end{description}
+
+
+%----------------------------------------------------------------------------
+
+\noindent
+\hrulefill\\
+\emph{``Extraordinary claims require extraordinary evidence''}
+  \phantom{} \hfill [Carl Sagan, 1934-1996]\\[-2ex]
+
+
+
+
+%----------------------------------------------------------------------------
+\newpage
+
+\noindent
+{\bf III -- Monte Carlo:}
+\begin{description}
+  \item[3.1] (11 points)
+    Let $u$ be the sum of 4 exponentially distributed numbers $t$,
+    with PDF $f(t) = \frac{1}{\tau} \exp(-t/\tau)$ for $t \in [0, \infty[$. Let $\tau = 0.8$.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Generate 1000 values of $u$ and plot these.
+    \item Try to fit the distribution of $u$ with a Gaussian and comment on the result.
+    \item Try other functional forms to see how well you can match the distribution of $u$.
+  \end{itemize}
+%
+  \item[3.2] (5 points) Let $x$ following the PDF $f(x) = C x \exp(-x)$ for $x \in [0, \infty[$.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Generate 1000 values of $x$, plot these, and determine the median of your $x$ values.
+  \end{itemize}
+\end{description}
+
+
+%----------------------------------------------------------------------------
+
+\noindent
+{\bf IV -- Statistical tests:}
+\begin{description}
+\item[4.1] (12 points)
+  In an observer-blinded study, 21720 persons were given two doses of the Covid-19 vaccine candidate BNT162b2 and 21728 persons two doses of placebo.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item In this study, the \emph{total} number of Covid-19 cases were $N_{vaccine} = 8$ among participants who received BNT162b2 and
+      $N_{placebo} = 162$ among those recieving the placebo. What is (approximately) the probability that BNT162b2 has no effect?
+    \item Based on the \emph{total} number of Covid-19 cases above, calculate a 68\% confidence interval of the BNT162b2 vaccine efficacy,
+      $\epsilon = (N_{placebo} - N_{vaccine}) / N_{placebo}$.
+    \item In the study, there were 10 \emph{severe} Covid-19 cases, out of which 9 were in the placebo group. With only this data,
+      what would then be the probability that BNT162b2 had no effect?
+  \end{itemize}
+%
+\item[4.2] (12 points)
+  The file \href{http://www.nbi.dk/~petersen/data\_ShuffledCards.txt}{\bf www.nbi.dk/$\sim$petersen/data\_ShuffledCards.txt} contains
+  52 entries representing a deck of cards.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Drawing 4 cards \emph{with} replacement, what distribution does the number of aces follow?
+      What is the chance of getting 3 aces or more?
+    \item Drawing 4 cards \emph{without} replacement, what is the probability of getting 3 aces or more?
+    \item Perform at least one hypothesis test to check, if the cards are well shuffled. Are they?
+  \end{itemize}
+\end{description}
+
+
+
+%----------------------------------------------------------------------------
+
+%\vspace{2ex}
+\noindent
+{\bf V -- Fitting data:}
+\begin{description}
+\item[5.1] (14 points) 
+  The cumulative solar power capacity (in MegaWatts) and price of solar power ($\$/W$) from 1976-2019 is listed in the file:
+  \href{http://www.nbi.dk/~petersen/data\_SolarPrice.txt}{\bf www.nbi.dk/$\sim$petersen/data\_SolarPower.txt}.
+  \vspace*{-1ex}
+  \begin{itemize}
+    \item Plot the price of solar power as a function of cumulative solar power capacity.
+    \item Assuming a \emph{relative} price uncertainty of 15\%, fit the data with a power law: $f(x) = a x^{-b}$.
+    \item Fit the cumulative solar power capacity as a function of year, and determine when you expect it to reach a million MW.
+      What do you estimate the price per $W$ to be then?
+  \end{itemize}
+%
+\item[5.2] (14 points)
+  The number of daily Covid-19 PCR tests and positve cases can for the period 4th-18th of January 2021 be found in the data file
+  \href{http://www.nbi.dk/~petersen/data\_Covid19tests.txt}{\bf www.nbi.dk/$\sim$petersen/data\_Covid19tests.txt}.
+  \vspace{-1.0ex}
+  \begin{itemize}
+    \item Given the number of daily tests $T_i$, what is the average number of tests $\bar{T}$ in the period?
+    \item Define the number of scaled positives (SP) as the number of positives (P) times $(T_i/\bar{T})^{0.7}$,
+      and fit the number of scale positive tests with $SP(t) = SP_0 \cdot R^{(t - t_0)/t_G}$, where $t_G = 4.7~\mbox{days}$.
+    \item How large a systematic uncertainty must be added, for the fit to give a reasonable p-value?
+    \item How large an uncertainty do you find on $R$, if $t_G$ has an uncertainty of $\pm 1.0~\mbox{days}$?
+  \end{itemize}
+\vspace*{-2ex}
+\end{description}
+
+
+%----------------------------------------------------------------------------
+
+\noindent
+\hrulefill\\
+\emph{``Coincidences, in general, are great stumbling blocks in the way of that class of thinkers who have been educated to know nothing of the theory of probabilities [and statistics] - that theory to which the most glorious objects of human research are indebted for the most glorious of illustration.''}\\
+  \phantom{} \hfill [Edgar Allan Poe, "The Murders in the Rue Morgue", 1841]\\[-2ex]
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
